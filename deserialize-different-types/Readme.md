@@ -1,0 +1,1 @@
+Code example for https://blog.mbwarez.dk/deserializing-different-types-based-on-properties-with-newtonsoft-json/
