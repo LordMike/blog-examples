@@ -1,0 +1,1 @@
+Code example for https://blog.mbwarez.dk/detecting-mismatched-objects-with-newtonsoft-json/

@@ -38,7 +38,6 @@ namespace ConsoleApplication
 
                 Console.WriteLine();
             }
-
         }
 
         private static void Error(object sender, ErrorEventArgs errorEventArgs)
