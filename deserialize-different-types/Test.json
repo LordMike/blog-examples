@@ -1,0 +1,27 @@
+﻿[
+  {
+    "type": "Car",
+    "wheels": 4,
+    "trunk": true
+  },
+  {
+    "type": "Bicycle",
+    "wheels": 3,
+    "persons": 2
+  },
+  {
+    "type": "Car",
+    "wheels": 3,
+    "trunk": false
+  },
+  {
+    "type": "Car",
+    "wheels": 8,
+    "trunk": true
+  },
+  {
+    "type": "Bicycle",
+    "wheels": 2,
+    "persons": 1
+  }
+]
