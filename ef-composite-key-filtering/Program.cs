@@ -49,7 +49,7 @@ namespace ef_composite_key_filtering
 
                 {
                     // The expression we want to mimic is:
-                    // post => (post.Type = a && post.Name = b) || (post.Type = c && post.Name = d) || ...
+                    // post => (post.Author = a && post.Title = b) || (post.Author = c && post.Title = d) || ...
                     ParameterExpression postArgument = Expression.Parameter(typeof(BlogPost), "post");
 
                     MemberExpression propertyAuthor = Expression.Property(postArgument, nameof(BlogPost.Author));
@@ -61,7 +61,7 @@ namespace ef_composite_key_filtering
                             ConstantExpression constantAuthor = Expression.Constant(s.author);
                             ConstantExpression constantTitle = Expression.Constant(s.title);
 
-                            // Expression: post.Type = a && post.Name = b
+                            // Expression: post.Author = a && post.Title = b
                             BinaryExpression andExpr = Expression.AndAlso(
                                 Expression.Equal(propertyAuthor, constantAuthor),
                                 Expression.Equal(propertyTitle, constantTitle));
@@ -72,6 +72,8 @@ namespace ef_composite_key_filtering
                     // Combine all the AND expressions using OR's
                     // (a) OR (b) OR (c) OR ...
                     BinaryExpression orExpression = ands.Aggregate(Expression.OrElse);
+
+                    Expression.OrElse(orExpression, orExpression);
 
                     // Prepare an Expression<Func<BlogPost, bool>> that we can use in the .Where() method call
                     Type delegateFunc = typeof(Func<,>).MakeGenericType(typeof(BlogPost), typeof(bool));
